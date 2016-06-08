@@ -6,9 +6,10 @@ THIS README IS IN PROGRESS
 ## Installation
 
 1. Set up an EC2 VM (this README uses an amazon image (as opposed to rhel, windows, etc))
+1. Update the security group for this VM (default will be something like `launch-wizard-1`) by opening up TCP port 8080
 1. Download the `.pem` file. We'll assume it's called `concourse_server.pem` for this README
 1. `chmod 400 concourse_server.pem`
-1. Navigate to your EC2 page and grab the public DNS. It should look something like this: `ec2-12-34-56-78.us-west-2.compute.amazonaws.com`
+1. Navigate to your EC2 page and grab the public DNS. It should look something like this: `ec2-12-34-56-78.us-west-2.compute.amazonaws.com`. The rest of this README will assume your DNS address is this - change accordingly
 1. `ssh -i "concourse_server.pem" ec2-12-34-56-78.us-west-2.compute.amazonaws.com` (replace appropriately)
 1. On the box
     1. Install and set up postgresql
@@ -50,5 +51,6 @@ THIS README IS IN PROGRESS
           --session-signing-key session_signing_key \
           --tsa-host-key host_key \
           --tsa-authorized-keys authorized_worker_keys \
-          --external-url http://my-ci.example.com
+          --external-url http://ec2-12-34-56-78.us-west-2.compute.amazonaws.com
         ```
+1. Navigate to `http://ec2-12-34-56-78.us-west-2.compute.amazonaws.com:8080` in your browser
