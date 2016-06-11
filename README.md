@@ -3,6 +3,16 @@ A talk on CI/CD.
 
 THIS README IS IN PROGRESS
 
+## Running
+
+1. Install [golang](https://golang.org/dl/)
+1. `go run main.go`
+
+## Testing
+
+1. `go run main.go`
+1. `go test`
+
 ## Installation
 
 1. Set up an EC2 VM (this README uses an amazon image (as opposed to rhel, windows, etc))
