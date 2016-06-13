@@ -64,6 +64,7 @@ THIS README IS IN PROGRESS
           --session-signing-key session_signing_key \
           --tsa-host-key host_key \
           --tsa-authorized-keys authorized_worker_keys \
-          --external-url http://ec2-12-34-56-78.us-west-2.compute.amazonaws.com
+          --bind-port 8080 \
+          --external-url http://ec2-12-34-56-78.us-west-2.compute.amazonaws.com:8080
         ```
 1. Navigate to `http://ec2-12-34-56-78.us-west-2.compute.amazonaws.com:8080` in your browser
