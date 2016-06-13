@@ -1,5 +1,9 @@
 language: go
-script: go run main.go & sleep 1 && go test && export TESTS_PASSED=yes;
+script:
+  go run main.go &
+  sleep 1 &&
+  go test &&
+  export TESTS_PASSED=yes;
 deploy:
   provider: cloudfoundry
   api: https://api.run.pivotal.io
@@ -10,3 +14,4 @@ deploy:
   space: development
   on:
     repo: jadekler/git-cicd-talk
+    condition: $TESTS_PASSED = yes
