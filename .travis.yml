@@ -1,6 +1,5 @@
 language: go
 script:
-  go build;
-  go run main.go &;
+  go run main.go &
   sleep 1;
   go test;
