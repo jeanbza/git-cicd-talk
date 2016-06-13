@@ -1,0 +1,6 @@
+---
+applications:
+  - name: my-simple-go-app
+    command: main
+    env:
+      GOPACKAGENAME: main
