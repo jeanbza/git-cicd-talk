@@ -1,4 +1,7 @@
 # git-cicd-talk
+
+[![Build Status](https://travis-ci.org/jadekler/git-cicd-talk.svg?branch=master)](https://travis-ci.org/jadekler/git-cicd-talk)
+
 A talk on CI/CD.
 
 THIS README IS IN PROGRESS
