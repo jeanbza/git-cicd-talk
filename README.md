@@ -18,6 +18,10 @@ THIS README IS IN PROGRESS
 
 ## Installation
 
+We will need to set up a concourse web VM and a concourse worker VM
+
+##### Set up the concourse web
+
 1. Set up an EC2 VM (this README uses an amazon image (as opposed to rhel, windows, etc))
 1. Update the security group for this VM (default will be something like `launch-wizard-1`) by opening up TCP port 8080
 1. Download the `.pem` file. We'll assume it's called `concourse_server.pem` for this README
@@ -66,5 +70,33 @@ THIS README IS IN PROGRESS
           --tsa-authorized-keys authorized_worker_keys \
           --bind-port 8080 \
           --external-url http://ec2-12-34-56-78.us-west-2.compute.amazonaws.com:8080
+        ```
+1. Navigate to `http://ec2-12-34-56-78.us-west-2.compute.amazonaws.com:8080` in your browser
+1. Copy `host_key.pub` and `worker_key` (public and private respectively)
+
+##### Set up the concourse worker
+
+1. Set up an EC2 VM (this README uses an amazon image (as opposed to rhel, windows, etc))
+1. Update the security group for this VM (default will be something like `launch-wizard-1`) by opening up TCP port 8080
+1. Download the `.pem` file. We'll assume it's called `concourse_server.pem` for this README
+1. `chmod 400 concourse_server.pem`
+1. Navigate to your EC2 page and grab the public DNS. It should look something like this: `ec2-12-34-56-78.us-west-2.compute.amazonaws.com`. The rest of this README will assume your DNS address is this - change accordingly
+1. `ssh -i "concourse_server.pem" ec2-12-34-56-78.us-west-2.compute.amazonaws.com` (replace appropriately)
+1. On the box
+    1. Remember to grab `host_key.pub` and `worker_key` (public and private keys respectively) from 'Set up the concourse worker' step
+    1. Install and set up concourse
+    
+        ```
+        sudo mkdir -p /opt/concourse/worker
+        sudo chmod 777 /opt/concourse/worker
+        
+        wget https://github.com/concourse/concourse/releases/download/v1.2.0/concourse_linux_amd64
+        chmod a+x concourse_linux_amd64
+        sudo mv concourse_linux_amd64 /usr/local/bin/concourse
+        sudo concourse worker \
+          --work-dir /opt/concourse/worker \
+          --tsa-host ec2-12-34-56-78.us-west-2.compute.amazonaws.com \
+          --tsa-public-key host_key.pub \
+          --tsa-worker-private-key worker_key
         ```
 1. Navigate to `http://ec2-12-34-56-78.us-west-2.compute.amazonaws.com:8080` in your browser
