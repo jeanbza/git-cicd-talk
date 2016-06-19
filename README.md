@@ -69,7 +69,7 @@ We will need to set up a concourse web VM and a concourse worker VM
           --tsa-host-key host_key \
           --tsa-authorized-keys authorized_worker_keys \
           --bind-port 8080 \
-          --external-url http://ec2-52-37-205-86.us-west-2.compute.amazonaws.com:8080
+          --external-url http://ec2-12-34-56-78.us-west-2.compute.amazonaws.com:8080 *
         ```
 1. Navigate to `http://ec2-12-34-56-78.us-west-2.compute.amazonaws.com:8080` in your browser
 
@@ -87,6 +87,14 @@ We will need to set up a concourse web VM and a concourse worker VM
           --work-dir /opt/concourse/worker \
           --tsa-host ec2-12-34-56-78.us-west-2.compute.amazonaws.com \
           --tsa-public-key host_key.pub \
-          --tsa-worker-private-key worker_key
+          --tsa-worker-private-key worker_key &
         ```
 1. Navigate to `http://ec2-12-34-56-78.us-west-2.compute.amazonaws.com:8080` in your browser
+
+##### Check your installation
+
+1. Once you've logged in at `http://ec2-12-34-56-78.us-west-2.compute.amazonaws.com:8080`, you should be able to download the fly CLI
+1. With the fly CLI,
+    1. `fly login -t concourse -c http://ec2-12-34-56-78.us-west-2.compute.amazonaws.com:8080`
+    1. `fly -t concourse workers`
+    1. You should see your one worker!
