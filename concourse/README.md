@@ -88,6 +88,6 @@ We will need to set up a concourse web VM and a concourse worker VM
 (this will not require you to SSH into your concourse box)
 
 1. `fly login -t concourse -c http://ec2-12-34-56-78.us-west-2.compute.amazonaws.com:8080`
-1. `fly -t concourse set-pipeline -p hello -c hello.yml`
-1. `fly -t concourse unpause-pipeline -p hello`
+1. `fly -t concourse set-pipeline -p my-pipeline -c pipeline.yml`
+1. `fly -t concourse unpause-pipeline -p my-pipeline`
 1. Navigate to http://ec2-12-34-56-78.us-west-2.compute.amazonaws.com:8080/pipelines/hello to see your pipeline!
