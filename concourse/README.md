@@ -45,7 +45,7 @@ We will need to set up a concourse web VM and a concourse worker VM
         
         wget https://github.com/concourse/concourse/releases/download/v1.3.1/concourse_linux_amd64
         chmod a+x concourse_linux_amd64
-        mv concourse_linux_amd64 /usr/local/bin/concourse
+        sudo mv concourse_linux_amd64 /usr/local/bin/concourse
         concourse web \
           --basic-auth-username myuser \
           --basic-auth-password mypass \
