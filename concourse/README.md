@@ -11,11 +11,11 @@ We will need to set up a concourse web VM and a concourse worker VM
 1. Navigate to your EC2 page and grab the public DNS. It should look something like this: `ec2-12-34-56-78.us-west-2.compute.amazonaws.com`. The rest of this README will assume your DNS address is this - change accordingly
 1. `ssh -i "concourse_server.pem" ubuntu@ec2-12-34-56-78.us-west-2.compute.amazonaws.com` (replace appropriately)
 1. On the box
+    1. `sudo apt-get update`
     1. `sudo apt-get install --install-recommends linux-generic-lts-wily `
     1. Install and set up postgresql
     
         ```
-        sudo apt-get update
         sudo apt-get install postgresql-9.3
         sudo apt-get install postgresql-client-9.3
         sudo su - # switch to root
