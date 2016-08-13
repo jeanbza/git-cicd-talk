@@ -4,8 +4,6 @@
 
 A talk on CI/CD.
 
-THIS README IS IN PROGRESS
-
 ## Running
 
 1. Install [golang](https://golang.org/dl/)
@@ -22,5 +20,6 @@ THIS README IS IN PROGRESS
     - Simply include a `manifest.yml` and enable the project in [travisCI](https://travis-ci.org/)
     - Each commit will trigger the build
 1. [ConcourseCI](http://concourse.ci/)
+    - Example pipeline: https://ci.concourse.ci/teams/main/pipelines/main?groups=develop
     - See instructions in [concourse](concourse) folder
    
