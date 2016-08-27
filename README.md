@@ -4,6 +4,8 @@
 
 A talk on CI/CD.
 
+Check out a recording at Golang UK [here](https://www.youtube.com/channel/UC9ZNrGdT2aAdrNbX78lbNlQ)
+
 ## Running
 
 1. Install [golang](https://golang.org/dl/)
